@@ -1,0 +1,13 @@
+a=0
+n=0
+f=''
+l=[]
+for i in range(999,99,-1):
+    for j in range(i,99,-1):
+        n=i*j
+        f=str(n)
+        if f[::-1]==f:
+            l.append(n)
+            
+l.sort()
+print(l[-1])
