@@ -1,0 +1,17 @@
+n=2000000
+listPrime=[]
+
+for k in range(2, n+1):
+    listPrime.append(k)
+
+for i in range(2, n+1):
+    for j in range(2, n+1):
+        if i%j==0 and i in listPrime and i!=j:
+            listPrime.remove(i)
+            break
+        
+s=0
+for p in listPrime:
+    s+=p
+    
+print(s)
