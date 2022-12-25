@@ -1,0 +1,7 @@
+def LPF(n):
+    return next(n//i for i in range(1,n) if n % i ==0 and IP(n//i))
+
+def IP(m):
+    return all(m%i for i in range(2,m-1))
+
+print(LPF(600851475143))
