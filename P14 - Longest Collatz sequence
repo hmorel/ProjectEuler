@@ -1,0 +1,18 @@
+def lengthCollatzSequence(n): #returns legnth of the Collatz sequence with starting number n
+    l=[n]
+    while n!=1:
+        if n%2==0:
+            n=n//2
+        elif n%2!=0:
+            n=3*n+1
+        l.append(n)
+    return len(l)
+        
+def main():
+    n=2 #n is best answer so far
+    for i in range(2,1000000):
+        if lengthCollatzSequence(i)>lengthCollatzSequence(n):
+            n=i
+    print(n)
+    
+main()
