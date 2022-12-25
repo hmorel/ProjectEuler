@@ -1,0 +1,15 @@
+l=[1,2,3]
+r=2
+n=3
+s=0
+
+while(n<=4000000):
+    l.append(n+l[r-1])
+    n=n+l[r-1]
+    r+=1
+    
+for i in l:
+    if i<=4000000 and i%2==0:
+        s+=i
+        
+print(s)
