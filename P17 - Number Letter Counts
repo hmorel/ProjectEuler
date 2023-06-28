@@ -1,0 +1,50 @@
+#Project Euler Problem 17
+#Author: Hugo Morel
+
+unit = ["one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"]
+dozens = ["twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"]
+more = ["hundred","thousand","and"]
+count = 0
+
+for i in range(1,1001):
+    if i == 1000:
+        count += len(unit[0]+more[1])
+        print(unit[0]+' ' +more[1])
+    else:
+        a = str(i)
+        if len(a)==1:
+            count += len(unit[int(a)-1])
+            print(unit[int(a)-1])
+       
+        elif len(a) == 2:
+            if a[0]=='1':
+                count += len(unit[int(a)-1])
+                print(unit[int(a)-1])
+            
+            elif a[0]!='1' and a[1]!='0':
+                count += len(dozens[int(a[0])-2]+unit[int(a[1])-1])
+                print(dozens[int(a[0])-2]+' '+unit[int(a[1])-1])
+            
+            elif a[0]!='1' and a[1]=='0':
+                count+=len(dozens[int(a[0])-2])
+                print(dozens[int(a[0])-2])
+       
+        elif len(a) == 3:
+
+            if a[1]==a[2]=='0':
+                count+= len(unit[int(a[0])-1] + more[0])
+                print(unit[int(a[0])-1] +' '+ more[0])
+
+            elif a[1]=='1' or a[1]=='0':
+                count += len(unit[int(a[0])-1] + more[0] + more[2] + unit[int(a[1]+a[2])-1])
+                print(unit[int(a[0])-1] + ' '+more[0] +' '+ more[2] +' '+ unit[int(a[1]+a[2])-1])
+
+            elif a[1]!='1' and a[2]=='0':
+                count += len(unit[int(a[0])-1] + more[0] + more[2] + dozens[int(a[1])-2])
+                print(unit[int(a[0])-1] + ' '+more[0] +' '+ more[2] +' '+ dozens[int(a[1])-2])
+
+            else:
+                count += len(unit[int(a[0])-1] + more[0] + more[2] + dozens[int(a[1])-2] + unit[int(a[2])-1])
+                print(unit[int(a[0])-1] +' '+ more[0] + ' '+more[2] + ' '+dozens[int(a[1])-2] + ' '+unit[int(a[2])-1])
+            
+print(count)  
